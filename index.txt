@@ -46,3 +46,5 @@ echo xxx > index.html -----------将xxx写入index.html文件中，如果index.h
 echo www > index.html ---------将www追加写入index.html中，原文不变
 git add -A ---------------------------将所有更改添加至暂存区
 git commit -m ----------------------将更改和文件描述提交至历史区
+
+aaa
