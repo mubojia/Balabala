@@ -1,0 +1,15 @@
+GIT分布式管理系统、svn集中式管理系统
+存档、多终端访问、团队协作
+git version 查看版本号
+/r/n window换行符
+/n   liux换行符
+
+【git】工作流
+--- $ git init  将改目录变为git可管理的仓库
+--- ls -al 查看是否存在/.git文件
+--- 工作区
+--- 建立或改动后文件
+--- $ git add 文件名
+--- 暂存区
+--- $ git commit -m文件描述
+--- 历史区
