@@ -13,3 +13,9 @@ git version 查看版本号
 --- 暂存区
 --- $ git commit -m文件描述
 --- 历史区
+
+1、git clone 仓库地址
+2、修改工作区文件
+3、git -add -A
+4、$ git commit -m 文件描述
+5、git push origin master
