@@ -48,10 +48,32 @@ echo www > index.html ---------将www追加写入index.html中，原文不变
 git add -A ---------------------------将所有更改添加至暂存区
 git commit -m ----------------------将更改和文件描述提交至历史区
 git commit -a -m -------------------将fong作曲和暂存区更改的文件提交至历史区
- git log --oneline --graph ---------显示历史提交记录
+ git log --oneline --graph --decorate --all 显示历史提交记录-显示精简记录-显示分支处理合并图-显示头指针位置-显示所有
 
  【创建分支与合并】
-git checkout -b dev --------------创建dev分支并切换到dev分支
-git branch dev --------------------创建dev分支
-git checkout dev -----------------切换到dev分支
-git branch -------------------------查看当前分支，带有*号的为当前分支
+git checkout -b dev ---------------创建dev分支并切换到dev分支
+git branch dev ---------------------创建dev分支
+git checkout dev ------------------切换到dev分支
+git branch ---------------------------查看当前分支，带有*号的为当前分支
+git merge dev ---------------------合并dev分支（快进模式提交）
+git branch -d dev -----------------删除dev分支
+git branch --abort -----------------放弃合并
+doskey /history -------------------产看操作历史
+git merge --no-ff -m"提交信息" dev --------------------合并dev分支（非快进模式提交）会在分支历史记录提交信息
+
+【分支策略】
+git stash ----------------------------储存工作区和暂存区到当前的工作分支，用于保存未完成的工作
+git stash list ------------------------列出所有保存的工作台
+git stash apply---------------------恢复应用未完成的工作台，保存的工作台不删除
+git stash apply stash@{0} -----恢复应用指定id的工作台
+git stash pop ----------------------恢复应用未完成的工作台，同时删除保存的工作台
+git stash clear --------------------删除所有的工作台
+
+【标签】
+git tag v1.0 ------------------------给当前的conmint添加标签
+git tag v1.0 commitID-----------给指定的conmint添加标签
+git tag -a v1.0 -m"标签描述 " commitID-----------给指定的conmint添加带有描述的标签
+git tag ------------------------------查看所有的标签
+git show ---------------------------查看该对象所有的信息
+
+【】
