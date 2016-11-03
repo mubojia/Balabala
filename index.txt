@@ -76,4 +76,40 @@ git tag -a v1.0 -m"标签描述 " commitID-----------给指定的conmint添加�
 git tag ------------------------------查看所有的标签
 git show ---------------------------查看该对象所有的信息
 
-【】
+git status    查看状态 
+git status -s 查看简易状态
+
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git
+reset --hard commot_id。
+穿梭前，用git reflog查看提交历史，以便确定要回退到那个版本。
+要重返未来，用git reflog查看命令历史，以便确定要回到未来哪个版本。
+git log --oneline --grep='index.html'
+
+git reset -mixed:此为默认方式，不带任何参数的git reset，即时这种方式，他回退到某个版本，工作区不变，回退历史区和暂存区。
+git reset -soft:回退到某个版本，只回退了历史区的信息，工作区和暂存区都不变。
+git reset -hard:彻底会退到某个版本，回退工作区、历史区和暂存区。
+
+git reset -mixed:此为默认方式，不带任何参数的git reset，即时这种方式，他回退到某个版本，工作区不变，回退历史区和暂存区。
+（这个命令可以删除未push过的add暂存和commit提交，但是工作区也就是你所改的代码仍然还在。）
+
+git reset -soft:回退到某个版本，只回退了历史区的信息，工作区和暂存区都不变。
+（这个命令可以删除未push过的commit提交，add过的文件记录仍然在、工作区也就是你所改的代码也仍然还在。）
+
+git reset -hard:彻底会退到某个版本，回退工作区、历史区和暂存区。
+（这个命令可以删除未push过的所有提交，让你的工作区、暂存区、历史区彻底回到某个版本，和之前的版本间所修改的内容会全部被遗弃）
+
+过滤日志
+git log --oneline -2 显示多少行
+git log --oneline -2 --grep='index.html' 过滤
+git log --oneline -2 --author='root' 作者
+git log --oneline -2 --author='root' --before='2015-6-6'
+git log --oneline -2 --author='root' --before='one week'
+git log --oneline -2 --author='root' --before='three days' 日期之前
+git log --oneline -2 --author='root' --graph 图形化
+
+
+
+
+
+
+
