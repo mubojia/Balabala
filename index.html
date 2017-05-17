@@ -6,21 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script type="text/javascript">
-        //新建一个iframe的生成器
-        var createIframe = (function() {
-            var iframe;
-            return function() {
-                if (iframe) {
-                    return iframe;
-                } else {
-                    iframe = document.createElement('iframe');
-                    iframe.style.display = 'none';
-                    document.body.appendChild(iframe);
-                    return iframe;
-                }
-            }
-        })();
-        
+
         //生成一个url scheme，调起app
         var localUrl = "carrefourapp://";
         var openIframe = createIframe();
