@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script type="text/javascript">
+        //新建一个iframe的生成器
+        var createIframe = (function() {
+            var iframe;
+            return function() {
+                if (iframe) {
+                    return iframe;
+                } else {
+                    iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                    return iframe;
+                }
+            }
+        })();
+        
+        //生成一个url scheme，调起app
+        var localUrl = "carrefourapp://";
+        var openIframe = createIframe();
+
+        // app下载地址，跳转应用宝
+        var openUrl = function (){
+            window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653";
+        }
+
+        // 判断平台
+        var u = navigator.userAgent;
+        //android终端
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+        //ios终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+        if (isIos) {
+            window.location.href = localUrl;
+        } else if (isAndroid) {
+            if (isChrome) {
+                window.location.href = localUrl;
+            } else {
+                openIframe.src = localUrl;
+            }
+        } else {
+            openIframe.src = localUrl;
+        }
+    </script>
 </head>
 <body>
 <p>aaaaaaaaaaaaaaaaaaa</p>
