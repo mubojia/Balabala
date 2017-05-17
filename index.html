@@ -31,11 +31,13 @@
             jumpIosDownload();
 
         } else if (isAndroid) {
-
+            // alert(234);
             setTimeout(function() {
                 iframeAndroidOpen();
+            }, 0);
+            setTimeout(function() {
+                window.location.href = appInfo.downloadUrl;
             }, 1000);
-
         } else {
 
             setTimeout(function() {
@@ -46,7 +48,7 @@
 
         //利用iframe打开客户端
         function iframeAndroidOpen() {
-            var src = isiOS ? appInfo.downloadUrl : appInfo.androidUrl,
+            var src = appInfo.androidUrl,
                 iframe = document.createElement("iframe");
             iframe.src = src;
             iframe.style.display = "none";
