@@ -6,12 +6,17 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<script type="text/javascript" src="https://mubojia.github.io/Balabala/qr/jquery.js"></script>
-	<script type="text/javascript" src="https://mubojia.github.io/Balabala/qr/qrcode.js"></script>
+	<script type="text/javascript" src="https://mubojia.github.io/Balabala/qr/qrious.js"></script>
 </head>
 <body>
 	<div id="qrcode"></div>
 	<script type="text/javascript">
-		jQuery('#qrcode').qrcode("http://blog.wpjam.com");
+	(function() {
+        const qr = new QRious({
+          element: document.getElementById('qr'),
+          value: 'https://neocotic.com/qrious'
+        })
+      })()
 	</script>
 </body>
 </html>
