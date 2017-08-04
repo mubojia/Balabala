@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>家乐福扫码跳转页面</title>
+    <script type="text/javascript">
+
+
+        // 判断平台
+        var u = navigator.userAgent;
+        //android终端
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+        //ios终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        //微信
+        var isWeixin = !!u.indexOf('MicroMessenger') > -1;
+
+        var appInfo = {
+            iosUrl: "carrefourapp://", //打开IOS客户端链接
+            androidUrl: "carrefourapp://", //打开ANdroid客户端的链接
+            downloadUrl: "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653" //下载客户端或者去App Store的链接
+        };
+
+        var t1 = new Date().getTime();
+        if (isiOS) {
+
+            window.location.href = appInfo.iosUrl;
+            jumpIosDownload();
+
+        } else if (isAndroid) {
+            // alert(234);
+            setTimeout(function() {
+                iframeAndroidOpen();
+            }, 0);
+            setTimeout(function() {
+                window.location.href = appInfo.downloadUrl;
+            }, 1000);
+        } else {
+
+            setTimeout(function() {
+                window.location.href = appInfo.downloadUrl;
+            }, 1000);
+
+        }
+
+        //利用iframe打开客户端
+        function iframeAndroidOpen() {
+            var src = appInfo.androidUrl,
+                iframe = document.createElement("iframe");
+            iframe.src = src;
+            iframe.style.display = "none";
+            document.body.appendChild(iframe);
+        }
+
+        //跳转下载页面
+        function jumpIosDownload() {
+            var _timer = null;
+
+            clearTimeout(_timer);
+            _timer = setTimeout(function() {
+                var t2 = new Date().getTime();
+
+                if (t2 - t1 <= 800) {
+                    window.location = appInfo.downloadUrl;
+                }
+            }, 400);
+        }
+    </script>
+</head>
+
+<body>
+    <p>家乐福扫码跳转页面</p>
+</body>
+
+</html>
