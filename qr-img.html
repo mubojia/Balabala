@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="https://mubojia.github.io/Balabala/qr/jquery.js"></script>
+	<script type="text/javascript" src="https://mubojia.github.io/Balabala/qr/qrious.js"></script>
+</head>
+<body>
+	<div id="qrcode"></div>
+	<script type="text/javascript">
+	(function() {
+        const qr = new QRious({
+          element: document.getElementById('qr'),
+          value: 'https://neocotic.com/qrious'
+        })
+      })()
+	</script>
+</body>
+</html>
