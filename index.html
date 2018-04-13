@@ -1,69 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<style> 
-* {
-    padding: 0;
-    margin: 0;
-}
-#clickMe {
-    width: 100%;
-    background: #ddd;
-    height: 100px;    
-    line-height: 100px;
-    font-size: 30px;
-    color: #000;
-}
-div {
-    float: left;
-    display: flex;
-    display: -webkit-flex; /* Safari */
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    width: 50%;
-    height: 100px;
-    transition:width 2s, height 2s;
-    -moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
-    -webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
-    -o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>家乐福扫码跳转页面</title>
+    <script type="text/javascript">
 
-    line-height: 100px;
-    font-size: 30px;
-    color: #fff;
-}
-.div1 {
-    background: red;
-}
-.div2 {
-    width:0;
-    height:100px;
-    background:yellow;
-}
-.div3 {
-    background: blue;
-}
-.class-name {
-    width:33%;
-}
-</style>
+
+        // 判断平台
+        var u = navigator.userAgent;
+        //android终端
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+        //ios终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        //微信
+        var isWeixin = !!u.indexOf('MicroMessenger') > -1;
+
+        var appInfo = {
+            iosUrl: "carrefourapp://", //打开IOS客户端链接
+            androidUrl: "carrefourapp://", //打开ANdroid客户端的链接
+            downloadUrl: "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653" //下载客户端或者去App Store的链接
+        };
+
+        var t1 = new Date().getTime();
+        if (isiOS) {
+
+            window.location.href = appInfo.iosUrl;
+            jumpIosDownload();
+
+        } else if (isAndroid) {
+            // alert(234);
+            setTimeout(function() {
+                iframeAndroidOpen();
+            }, 0);
+            setTimeout(function() {
+                window.location.href = appInfo.downloadUrl;
+            }, 1000);
+        } else {
+
+            setTimeout(function() {
+                window.location.href = appInfo.downloadUrl;
+            }, 1000);
+
+        }
+
+        //利用iframe打开客户端
+        function iframeAndroidOpen() {
+            var src = appInfo.androidUrl,
+                iframe = document.createElement("iframe");
+            iframe.src = src;
+            iframe.style.display = "none";
+            document.body.appendChild(iframe);
+        }
+
+        //跳转下载页面
+        function jumpIosDownload() {
+            var _timer = null;
+
+            clearTimeout(_timer);
+            _timer = setTimeout(function() {
+                var t2 = new Date().getTime();
+
+                if (t2 - t1 <= 800) {
+                    window.location = appInfo.downloadUrl;
+                }
+            }, 400);
+        }
+    </script>
 </head>
+
 <body>
-<p id="clickMe">点击登录</p>
-<hr>
-<div id="changeBox1" class="div1">按钮1</div>
-<div id="changeBox2" class="div2">按钮2</div>
-<div id="changeBox3" class="div3">按钮3</div>
-======================================================
-<p><b>注释：</b>本例在 Internet Explorer 中无效。主效果是css3，事件绑定最好采用自己的框架或者原生JS实现。</p>
-
-<script>
-    document.getElementById("clickMe").onclick = function(){
-        document.getElementById('changeBox1').className = 'class-name div1';
-        document.getElementById('changeBox2').className = 'class-name div2';
-        document.getElementById('changeBox3').className = 'class-name div3';
-    };
-</script>
+    <p>家乐福扫码跳转页面</p>
 </body>
-</html>
 
+</html>
