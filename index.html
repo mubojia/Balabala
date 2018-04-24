@@ -5,6 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>怡家乐扫码</title>
+    <script type="text/javascript">
+
+        // 判断平台
+        var u = navigator.userAgent;
+        //android终端
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+        //ios终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        //微信
+        var isWeixin = !!u.indexOf('MicroMessenger') > -1;
+
+        var appInfo = {
+            downloadUrlAndroid: "http://shop.enjoylovestore.com:80/assets/upload/enjoyLove.apk", //下载客户端或者去App Store的链接
+            downloadUrlIos: "https://itunes.apple.com/cn/app/id1371388871?mt=8"
+        };
+
+        if (isiOS) {
+
+            window.location = appInfo.downloadUrlIos;
+
+        } else if (isAndroid) {
+            setTimeout(function() {
+                window.location.href = appInfo.downloadUrlAndroid;
+            }, 1000);
+        } else {
+            alert('应用宝未上线');
+        }
+    </script>
+
+</head>
+
+<body>
+    <p>怡家乐APP下载...</p>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>家乐福扫码跳转页面</title>
     <script type="text/javascript">
 
@@ -75,4 +121,4 @@
     <p>家乐福扫码跳转页面</p>
 </body>
 
-</html>
+</html> -->
