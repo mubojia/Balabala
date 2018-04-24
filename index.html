@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>怡家乐扫码</title>
+    <title>怡家乐APP下载</title>
     <script type="text/javascript">
 
         // 判断平台
@@ -18,27 +18,27 @@
         var isWeixin = !!u.indexOf('MicroMessenger') > -1;
 
         var appInfo = {
-            downloadUrlAndroid: "http://shop.enjoylovestore.com:80/assets/upload/enjoyLove.apk", //下载客户端或者去App Store的链接
+            downloadUrlAndroid: "http://shop.enjoylovestore.com:80/assets/upload/enjoylove.apk", //下载客户端或者去App Store的链接
             downloadUrlIos: "https://itunes.apple.com/cn/app/id1371388871?mt=8"
         };
 
         if (isiOS) {
 
-            window.location = appInfo.downloadUrlIos;
+            setTimeout(function() {
+                window.location = appInfo.downloadUrlIos;
+            }, 1000);
 
         } else if (isAndroid) {
             setTimeout(function() {
                 window.location.href = appInfo.downloadUrlAndroid;
             }, 1000);
-        } else {
-            alert('应用宝未上线');
         }
     </script>
 
 </head>
 
 <body>
-    <p>怡家乐APP下载...</p>
+    <p>怡家乐APP下载,请稍等...</p>
 </body>
 
 </html>
