@@ -4,41 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>怡家乐APP下载</title>
+    <title></title>
     <script type="text/javascript">
 
-        // 判断平台
-        var u = navigator.userAgent;
-        //android终端
-        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
-        //ios终端
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        //微信
-        var isWeixin = !!u.indexOf('MicroMessenger') > -1;
+        var url = window.location.href;
+        var index = url.indexOf("?");
+        url = url.slice(index + 1);
+        setTimeout(function(){
+            window.location.href = url;
+        },100);
 
-        var appInfo = {
-            downloadUrlAndroid: "http://shop.enjoylovestore.com:80/assets/upload/enjoylove.apk", //下载客户端或者去App Store的链接
-            downloadUrlIos: "https://itunes.apple.com/cn/app/id1371388871?mt=8"
-        };
-
-        if (isiOS) {
-
-            setTimeout(function() {
-                window.location = appInfo.downloadUrlIos;
-            }, 1000);
-
-        } else {
-            setTimeout(function() {
-                window.location.href = appInfo.downloadUrlAndroid;
-            }, 1000);
-        }
     </script>
 
 </head>
 
 <body>
-    <p>怡家乐APP下载,请稍等...</p>
 </body>
 
 </html>
