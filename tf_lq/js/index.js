@@ -183,7 +183,8 @@ $(function() {
 	// });
 
 	$("input").blur(function(){
-	    alert(123);
+		alert(11111);
+	    window.scroll(0,0);
 	});
 	
 });
