@@ -44,7 +44,7 @@
             //ios终端
             var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 
-            if (isIos) {
+            if (isiOS) {
                 window.location.href = localUrl;
             } else if (isAndroid) {
                 if (isChrome) {
