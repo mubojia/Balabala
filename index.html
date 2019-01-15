@@ -21,19 +21,19 @@
             var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 
             if (isiOS) {
+                alert('ios');
                 window.location.href = "carrefourapp://";
                 setTimeout(function(){
                     window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653";
                 },500)
-            } else if (isAndroid) {
+            } else {
+                alert('Android');
                 var ifr = document.createElement('iframe');
                 ifr.src = "carrefourapp://";
                 ifr.style.display = 'none';
                 document.body.appendChild(ifr);
                 window.setTimeout(function () {
                    document.body.removeChild(ifr);
-                   // 这里写兜底策略的逻辑，比如下载。
-                   // 当然，也可以不加任何的兜底策略，调不起就算了。
                    window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653";
                 }, 300);
             }
