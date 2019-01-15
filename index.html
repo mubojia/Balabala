@@ -9,7 +9,7 @@
 
 <body>
     <h1>hahahahahajhaah</h1>
-    <a href="carrefourapp://">
+    <a href="https://www.baidu.com/">
         <p id="openApp">
             hehehehehehe
         </p>
@@ -17,31 +17,31 @@
 </body>
 
     <script>
+            $("#openApp").trigger("click");
+            // // 判断平台
+            // var u = navigator.userAgent;
+            // //android终端
+            // var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+            // //ios终端
+            // var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 
-            // 判断平台
-            var u = navigator.userAgent;
-            //android终端
-            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
-            //ios终端
-            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-
-            if (isiOS) {
-                alert('ios');
-                window.location.href = "carrefourapp://";
-                setTimeout(function(){
-                    window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653";
-                },500)
-            } else {
-                alert('Android');
-                $("#openApp").trigger("click");
-                var ifr = document.createElement('iframe');
-                ifr.src = "carrefourapp://";
-                ifr.style.display = 'none';
-                document.body.appendChild(ifr);
-                window.setTimeout(function () {
-                   document.body.removeChild(ifr);
-                   window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653";
-                }, 300);
-            }
+            // if (isiOS) {
+            //     alert('ios');
+            //     window.location.href = "carrefourapp://";
+            //     setTimeout(function(){
+            //         window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653";
+            //     },500)
+            // } else {
+            //     alert('Android');
+                
+            //     var ifr = document.createElement('iframe');
+            //     ifr.src = "carrefourapp://";
+            //     ifr.style.display = 'none';
+            //     document.body.appendChild(ifr);
+            //     window.setTimeout(function () {
+            //        document.body.removeChild(ifr);
+            //        window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=cn.carrefour.app.mobile&g_f=991653";
+            //     }, 300);
+            // }
     </script>
 </html>
