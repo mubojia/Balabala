@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script type="text/javascript" src="./jquery.js"></script>
 </head>
 
 <body>
     <h1>hahahahahajhaah</h1>
-    <a href="carrefourapp://">打开微信</a>
+    <a href="carrefourapp://">
+        <p id="openApp">
+            hehehehehehe
+        </p>
+    </a>
 </body>
 
     <script>
@@ -28,6 +33,7 @@
                 },500)
             } else {
                 alert('Android');
+                $("#openApp").trigger("click");
                 var ifr = document.createElement('iframe');
                 ifr.src = "carrefourapp://";
                 ifr.style.display = 'none';
